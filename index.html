@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>This is Tina</title>
+  </head>
+  <body>
+    <!-- <img class="" src="assets/tina.jpg" alt="" /> -->
+    <div class="parallax__container">
+      <img src="assets/back.jpg" alt="parallax" />
+      <img id="bg-2" src="assets/back-new.jpg" alt="parallax" />
+
+      <h1 style="font-size: 10px" id="title">Tina</h1>
+      <h1 style="margin-top: 15rem" id="title">Hossein pour</h1>
+      <img id="bg-3" src="assets/simpled.jpg" alt="" />
+    </div>
+    <section class="about">
+      <div class="image__gallary">
+        <div class="image__card" id="image__card-1">
+          <img src="assets/grid-1.jpg" alt="grid" />
+        </div>
+        <div class="image__card" id="image__card-2">
+          <img src="assets/grid-2.jpg" alt="grid" />
+        </div>
+        <div class="image__card" id="image__card-3">
+          <img src="assets/grid-3.jpg" alt="grid" />
+        </div>
+        <div class="image__card" id="image__card-4">
+          <img src="assets/grid-4.jpg" alt="grid" />
+        </div>
+      </div>
+      <div class="details">
+        I'm a front-end developer with experience in multiple frameworks,
+        including Vue, React, Nuxt.js, and Next.js. I'm passionate about
+        building scalable and maintainable web applications that provide the
+        best possible user experience, and I'm particularly interested in the
+        emerging trend of microfrontends. By breaking up complex applications
+        into smaller, more manageable pieces, microfrontends can help improve
+        scalability, maintainability, and overall developer productivity. I'm
+        committed to delivering high-quality work that meets the needs of my
+        clients and users, and I'm always looking for ways to improve my skills
+        and stay up-to-date with the latest trends and best practices in
+        front-end development. If you're interested in collaborating on a
+        project or just want to chat about microfrontends or front-end
+        development in general, feel free to reach out and say hello!
+      </div>
+      <div class="footer__btn">
+        <button class="learn__more">Learn More</button>
+      </div>
+    </section>
+
+    <script>
+      var title = document.getElementById('title')
+      var bg_2 = document.getElementById('bg-2')
+      var bg_3 = document.getElementById('bg-3')
+
+      var image_card_1 = document.getElementById('image__card-1')
+      var image_card_2 = document.getElementById('image__card-2')
+      var image_card_3 = document.getElementById('image__card-3')
+      var image_card_4 = document.getElementById('image__card-4')
+
+      document.addEventListener('scroll', (event) => {
+        var positionY = window.scrollY
+
+        title.style.fontSize = `${100 + positionY * 0.5}px`
+
+        bg_2.style.top = `-${positionY * 0.5}px`
+        bg_3.style.top = `-${positionY}px`
+        bg_3.style.scale = 1 + positionY * 0.001
+
+        image_card_1.style.transform = `translateY(${positionY * -0.5 + 400}px)`
+
+        image_card_2.style.transform = `translateY(${positionY * 0.1 + -50}px)`
+
+        image_card_3.style.transform = `translateY(${positionY * -0.1 + 100}px)`
+
+        image_card_4.style.transform = `translateY(${positionY * 0.2 + -125}px)`
+
+        var _newOpacity = positionY * 0.001
+        if (_newOpacity >= 0 && _newOpacity <= 1) {
+          image_card_1.style.opacity = _newOpacity
+          image_card_2.style.opacity = _newOpacity
+          image_card_3.style.opacity = _newOpacity
+          image_card_4.style.opacity = _newOpacity
+        }
+      })
+    </script>
+  </body>
+</html>
